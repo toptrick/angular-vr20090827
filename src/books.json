@@ -1,0 +1,26 @@
+{
+  "books": [
+    {
+      "id": "2019-08-12T06:25:36.870Z",
+      "title": "How to do it",
+      "author": "Addy Osmani",
+      "isbn": 9781449331818,
+      "pubdate": "2015-02-14",
+      "publisher": "O'Reilly Media",
+      "price": 274,
+      "genre": "behaviour",
+      "format": "paperback"
+    },
+    {
+      "id": "2019-08-12T06:26:54.644Z",
+      "title": "Mind to Believe",
+      "author": "Rich Card",
+      "isbn": 9781449331816,
+      "pubdate": "2019-08-06",
+      "publisher": "Star Books",
+      "price": 358,
+      "genre": "behaviour",
+      "format": "paperback"
+    }
+  ]
+}

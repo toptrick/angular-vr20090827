@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <h1 class="text-center"> Search Your Books Here</h1>
+      <div class="form-group" style="padding-top: 5%">
+        <input type="text" class="form-control" [(ngModel)]="searchValue"
+          placeholder="Search by Title/Author/Publisher/ISBN/Genre/Format">
+      </div>
+    </div>
+  </div>
+  <div class="text-center"><button type="submit" class="btn btn-primary" (click)="searchBook()">Search <i
+        class="fa fa-search"></i></button></div>
+  <div class="row" *ngIf="searchResults.length !=0">
+    <h1>Results:: </h1>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Publication Date</th>
+            <th>Publisher</th>
+            <th>Price</th>
+            <th>Genre</th>
+            <th>Format</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let searchResult of searchResults">
+            <td>{{ searchResult.title }}</td>
+            <td>{{ searchResult.author }}</td>
+            <td>{{ searchResult.isbn }}</td>
+            <td>{{ searchResult.pubdate }}</td>
+            <td>{{ searchResult.publisher }}</td>
+            <td>{{ searchResult.price }}</td>
+            <td>{{ searchResult.genre }}</td>
+            <td>{{ searchResult.format }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row" *ngIf="searchResults.length == 0">
+    <div class="text-center">
+      <h1 class="alert">No Books Found...</h1>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" *ngIf="books.length != 0">
+            <h1 align="center">Details of Available Books</h1>
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchValue">
+            </div>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Publication Date</th>
+                        <th>Publisher</th>
+                        <th>Price</th>
+                        <th>Genre</th>
+                        <th>Format</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books | filter: searchValue">
+                        <td><input type="checkbox" (change)="checkbox(book.id)"></td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.isbn }}</td>
+                        <td>{{ book.pubdate }}</td>
+                        <td>{{ book.publisher }}</td>
+                        <td>{{ book.price }}</td>
+                        <td>{{ book.genre }}</td>
+                        <td>{{ book.format }}</td>
+                        <td><button class="btn btn-warning" (click)="updateBook(book.id)">Update</button></td>
+                        <td><button class="btn btn-danger" (click)="deleteBook(book.id)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <span>* Check the boxes to delete</span>
+            <div class="text-center"><button class="btn btn-danger" (click)="deleteBooks(selectedBooks)">Delete
+                    Books</button>
+            </div>
+        </div>
+        <div class="col-sm-12" *ngIf="books.length === 0">
+            <h1 class="alert text-center">No Books Found...</h1>
+        </div>
+    </div>
+</div>
+<app-updatebooks *ngIf="currentbook" [updatebook]="currentbook"></app-updatebooks>
